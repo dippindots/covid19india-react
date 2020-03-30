@@ -5,8 +5,8 @@ import * as topojson from 'topojson';
 import {MAP_TYPES} from '../constants';
 
 const propertyFieldMap = {
-  country: 'ST_NM',
-  state: 'district',
+  country: 'name',
+  state: 'NAME',
 };
 
 export const highlightRegionInMap = (name, mapType) => {
@@ -35,6 +35,8 @@ function ChoroplethMap({
     (async () => {
       const data = await d3.json(mapMeta.geoDataFile);
       if (statistic && choroplethMap.current) {
+        console.log(data);
+        
         ready(data);
         renderData();
         // setState(states[1]);
@@ -131,6 +133,10 @@ function ChoroplethMap({
       .append('title')
       .text(function (d) {
         const value = mapData[d.properties[propertyField]] || 0;
+        console.log(d);
+        console.log(propertyField);
+        
+        
         return (
           parseFloat(100 * (value / (statistic.total || 0.001))).toFixed(2) +
           '% from ' +

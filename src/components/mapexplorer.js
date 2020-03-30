@@ -5,206 +5,312 @@ import {formatDate} from '../utils/common-functions';
 import {formatDistance} from 'date-fns';
 
 const mapMeta = {
-  India: {
-    name: 'India',
-    geoDataFile: `${MAPS_DIR}/india.json`,
+  US: {
+    name: 'US',
+    geoDataFile: `${MAPS_DIR}/us.json`,
     mapType: MAP_TYPES.COUNTRY,
-    graphObjectName: 'india',
+    graphObjectName: 'us',
   },
-  'Andaman and Nicobar Islands': {
-    name: 'Andaman and Nicobar Islands',
-    geoDataFile: `${MAPS_DIR}/andamannicobarislands.json`,
+  // 'Alabama': {
+  //   name: 'Alabama',
+  //   geoDataFile: `${MAPS_DIR}/alabama.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'alabama-distinct',
+  // },
+  // 'Alaska': {
+  //   name: 'Alaska',
+  //   geoDataFile: `${MAPS_DIR}/alaska.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'alaska-distinct',
+  // },
+  // 'Arizona': {
+  //   name: 'Arizona',
+  //   geoDataFile: `${MAPS_DIR}/arizona.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'arizona-distinct',
+  // },
+  // 'Arkansas': {
+  //   name: 'Arkansas',
+  //   geoDataFile: `${MAPS_DIR}/arkansas.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'arkansas-distinct',
+  // },
+  // 'California': {
+  //   name: 'California',
+  //   geoDataFile: `${MAPS_DIR}/california.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'california-distinct',
+  // },
+  // 'Colorado': {
+  //   name: 'Colorado',
+  //   geoDataFile: `${MAPS_DIR}/colorado.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'colorado-distinct',
+  // },
+  // 'Connecticut': {
+  //   name: 'Connecticut',
+  //   geoDataFile: `${MAPS_DIR}/connecticut.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'connecticut-distinct',
+  // },
+  // 'Delaware': {
+  //   name: 'Delaware',
+  //   geoDataFile: `${MAPS_DIR}/delaware.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'delaware-distinct',
+  // },
+  // 'Florida': {
+  //   name: 'Florida',
+  //   geoDataFile: `${MAPS_DIR}/florida.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'florida-distinct',
+  // },
+  // 'Hawaii': {
+  //   name: 'Hawaii',
+  //   geoDataFile: `${MAPS_DIR}/hawaii.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'hawaii-distinct',
+  // },
+  // 'Idaho': {
+  //   name: 'Idaho',
+  //   geoDataFile: `${MAPS_DIR}/idaho.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'idaho-distinct',
+  // },
+  // 'Illinois': {
+  //   name: 'Illinois',
+  //   geoDataFile: `${MAPS_DIR}/illinois.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'illinois-distinct',
+  // },
+  // 'Indiana': {
+  //   name: 'Indiana',
+  //   geoDataFile: `${MAPS_DIR}/indiana.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'indiana-distinct',
+  // },
+  // 'Iowa': {
+  //   name: 'Iowa',
+  //   geoDataFile: `${MAPS_DIR}/iowa.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'iowa-distinct',
+  // },
+  // 'Kansas': {
+  //   name: 'Kansas',
+  //   geoDataFile: `${MAPS_DIR}/kansas.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'kansas-distinct',
+  // },
+  // 'Kentucky': {
+  //   name: 'Kentucky',
+  //   geoDataFile: `${MAPS_DIR}/kentucky.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'kentucky-distinct',
+  // },
+  // 'Louisiana': {
+  //   name: 'Louisiana',
+  //   geoDataFile: `${MAPS_DIR}/louisiana.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'louisiana-distinct',
+  // },
+  // 'Maine': {
+  //   name: 'Maine',
+  //   geoDataFile: `${MAPS_DIR}/maine.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'maine-distinct',
+  // },
+  // 'Maryland': {
+  //   name: 'Maryland',
+  //   geoDataFile: `${MAPS_DIR}/maryland.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'maryland-distinct',
+  // },
+  // 'Massachusetts': {
+  //   name: 'Massachusetts',
+  //   geoDataFile: `${MAPS_DIR}/massachusetts.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'massachusetts-distinct',
+  // },
+  // 'Michigan': {
+  //   name: 'Michigan',
+  //   geoDataFile: `${MAPS_DIR}/michigan.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'michigan-distinct',
+  // },
+  // 'Minnesota': {
+  //   name: 'Minnesota',
+  //   geoDataFile: `${MAPS_DIR}/minnesota.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'minnesota-distinct',
+  // },
+  // 'Mississippi': {
+  //   name: 'Mississippi',
+  //   geoDataFile: `${MAPS_DIR}/mississippi.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'mississippi-distinct',
+  // },
+  // 'Missouri': {
+  //   name: 'Missouri',
+  //   geoDataFile: `${MAPS_DIR}/missouri.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'missouri-distinct',
+  // },
+  // 'Montana': {
+  //   name: 'Montana',
+  //   geoDataFile: `${MAPS_DIR}/montana.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'montana-distinct',
+  // },
+  // 'Nebraska': {
+  //   name: 'Nebraska',
+  //   geoDataFile: `${MAPS_DIR}/nebraska.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'nebraska-distinct',
+  // },
+  // 'Nevada': {
+  //   name: 'Nevada',
+  //   geoDataFile: `${MAPS_DIR}/nevada.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'nevada-distinct',
+  // },
+  // 'New Hampshire': {
+  //   name: 'New Hampshire',
+  //   geoDataFile: `${MAPS_DIR}/new-hampshire.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'new-hampshire-distinct',
+  // },
+  // 'New Jersey': {
+  //   name: 'New Jersey',
+  //   geoDataFile: `${MAPS_DIR}/new-jersey.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'new-jersey-distinct',
+  // },
+  // 'New Mexico': {
+  //   name: 'New Mexico',
+  //   geoDataFile: `${MAPS_DIR}/new-mexico.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'new-mexico-distinct',
+  // },
+  'New York': {
+    name: 'New York',
+    geoDataFile: `${MAPS_DIR}/new-york.json`,
     mapType: MAP_TYPES.STATE,
-    graphObjectName: 'andamannicobarislands_district',
+    graphObjectName: 'new-york-distinct',
   },
-  'Arunachal Pradesh': {
-    name: 'Arunachal Pradesh',
-    geoDataFile: `${MAPS_DIR}/arunachalpradesh.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'arunachalpradesh_district',
-  },
-  'Andhra Pradesh': {
-    name: 'Andhra Pradesh',
-    geoDataFile: `${MAPS_DIR}/andhrapradesh.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'andhrapradesh_district',
-  },
-
-  Assam: {
-    name: 'Assam',
-    geoDataFile: `${MAPS_DIR}/assam.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'assam_district',
-  },
-  Bihar: {
-    name: 'Bihar',
-    geoDataFile: `${MAPS_DIR}/bihar.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'bihar_district',
-  },
-  Chhattisgarh: {
-    name: 'Chhattisgarh',
-    geoDataFile: `${MAPS_DIR}/chhattisgarh.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'chhattisgarh_district',
-  },
-  Delhi: {
-    name: 'Delhi',
-    geoDataFile: `${MAPS_DIR}/delhi.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'delhi_1997-2012_district',
-  },
-  Karnataka: {
-    name: 'Karnataka',
-    geoDataFile: `${MAPS_DIR}/karnataka.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'karnataka_district',
-  },
-  Kerala: {
-    name: 'Kerala',
-    geoDataFile: `${MAPS_DIR}/kerala.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'kerala_district',
-  },
-  Goa: {
-    name: 'Goa',
-    geoDataFile: `${MAPS_DIR}/goa.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'goa_district',
-  },
-  Gujarat: {
-    name: 'Gujarat',
-    geoDataFile: `${MAPS_DIR}/gujarat.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'gujarat_district_2011',
-  },
-  Haryana: {
-    name: 'Haryana',
-    geoDataFile: `${MAPS_DIR}/haryana.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'haryana_district',
-  },
-  'Himachal Pradesh': {
-    name: 'Himachal Pradesh',
-    geoDataFile: `${MAPS_DIR}/himachalpradesh.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'himachalpradesh_district',
-  },
-  'Jammu and Kashmir': {
-    name: 'Jammu and Kashmir',
-    geoDataFile: `${MAPS_DIR}/jammukashmir.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'jammukashmir_district',
-  },
-  Jharkhand: {
-    name: 'Jharkhand',
-    geoDataFile: `${MAPS_DIR}/jharkhand.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'jharkhand_district',
-  },
-  Ladakh: {
-    name: 'Ladakh',
-    geoDataFile: `${MAPS_DIR}/ladakh.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'ladakh_district',
-  },
-  'Madhya Pradesh': {
-    name: 'Madhya Pradesh',
-    geoDataFile: `${MAPS_DIR}/madhyapradesh.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'madhyapradesh_district',
-  },
-  Maharashtra: {
-    name: 'Maharashtra',
-    geoDataFile: `${MAPS_DIR}/maharashtra.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'maharashtra_district',
-  },
-  Manipur: {
-    name: 'Manipur',
-    geoDataFile: `${MAPS_DIR}/manipur.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'manipur_pre2016_districts',
-  },
-  Meghalaya: {
-    name: 'Meghalaya',
-    geoDataFile: `${MAPS_DIR}/meghalaya.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'meghalaya_district',
-  },
-  Mizoram: {
-    name: 'Mizoram',
-    geoDataFile: `${MAPS_DIR}/mizoram.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'mizoram_district',
-  },
-  Nagaland: {
-    name: 'Nagaland',
-    geoDataFile: `${MAPS_DIR}/nagaland.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'nagaland_district',
-  },
-  Odisha: {
-    name: 'Odisha',
-    geoDataFile: `${MAPS_DIR}/odisha.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'odisha_district',
-  },
-  Punjab: {
-    name: 'Punjab',
-    geoDataFile: `${MAPS_DIR}/punjab.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'punjab_district',
-  },
-  Rajasthan: {
-    name: 'Rajasthan',
-    geoDataFile: `${MAPS_DIR}/rajasthan.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'rajasthan_district',
-  },
-  Sikkim: {
-    name: 'Sikkim',
-    geoDataFile: `${MAPS_DIR}/sikkim.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'sikkim_district',
-  },
-  'Tamil Nadu': {
-    name: 'Tamil Nadu',
-    geoDataFile: `${MAPS_DIR}/tamil-nadu.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'tamilnadu_district',
-  },
-  Telangana: {
-    name: 'Telangana',
-    geoDataFile: `${MAPS_DIR}/telugana.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'telugana',
-  },
-  Tripura: {
-    name: 'Tripura',
-    geoDataFile: `${MAPS_DIR}/tripura.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'tripura_district',
-  },
-  Uttarakhand: {
-    name: 'Uttarakhand',
-    geoDataFile: `${MAPS_DIR}/uttarakhand.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'uttarakhand_district',
-  },
-  'Uttar Pradesh': {
-    name: 'Uttar Pradesh',
-    geoDataFile: `${MAPS_DIR}/uttarpradesh.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'uttarpradesh_district',
-  },
-
-  'West Bengal': {
-    name: 'West Bengal',
-    geoDataFile: `${MAPS_DIR}/westbengal.json`,
-    mapType: MAP_TYPES.STATE,
-    graphObjectName: 'westbengal_district',
-  },
+  // 'North Carolina': {
+  //   name: 'North Carolina',
+  //   geoDataFile: `${MAPS_DIR}/north-carolina.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'north-carolina-distinct',
+  // },
+  // 'North Dakota': {
+  //   name: 'North Dakota',
+  //   geoDataFile: `${MAPS_DIR}/north-dakota.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'north-dakota-distinct',
+  // },
+  // 'Ohio': {
+  //   name: 'Ohio',
+  //   geoDataFile: `${MAPS_DIR}/ohio.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'ohio-distinct',
+  // },
+  // 'Oklahoma': {
+  //   name: 'Oklahoma',
+  //   geoDataFile: `${MAPS_DIR}/oklahoma.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'oklahoma-distinct',
+  // },
+  // 'Oregon': {
+  //   name: 'Oregon',
+  //   geoDataFile: `${MAPS_DIR}/oregon.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'oregon-distinct',
+  // },
+  // 'Pennsylvania': {
+  //   name: 'Pennsylvania',
+  //   geoDataFile: `${MAPS_DIR}/pennsylvania.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'pennsylvania-distinct',
+  // },
+  // 'Puerto Rico': {
+  //   name: 'Puerto Rico',
+  //   geoDataFile: `${MAPS_DIR}/puerto-rico.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'puerto-rico-distinct',
+  // },
+  // 'Rhode Island': {
+  //   name: 'Rhode Island',
+  //   geoDataFile: `${MAPS_DIR}/rhode-island.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'rhode-island-distinct',
+  // },
+  // 'South Carolina': {
+  //   name: 'South Carolina',
+  //   geoDataFile: `${MAPS_DIR}/south-carolina.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'south-carolina-distinct',
+  // },
+  // 'South Dakota': {
+  //   name: 'South Dakota',
+  //   geoDataFile: `${MAPS_DIR}/south-dakota.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'south-dakota-distinct',
+  // },
+  // 'Tennessee': {
+  //   name: 'Tennessee',
+  //   geoDataFile: `${MAPS_DIR}/tennessee.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'tennessee-distinct',
+  // },
+  // 'Texas': {
+  //   name: 'Texas',
+  //   geoDataFile: `${MAPS_DIR}/texas.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'texas-distinct',
+  // },
+  // 'Utah': {
+  //   name: 'Utah',
+  //   geoDataFile: `${MAPS_DIR}/utah.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'utah-distinct',
+  // },
+  // 'Vermont': {
+  //   name: 'Vermont',
+  //   geoDataFile: `${MAPS_DIR}/vermont.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'vermont-distinct',
+  // },
+  // 'Virginia': {
+  //   name: 'Virginia',
+  //   geoDataFile: `${MAPS_DIR}/virginia.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'virginia-distinct',
+  // },
+  // 'Washington': {
+  //   name: 'Washington',
+  //   geoDataFile: `${MAPS_DIR}/washington.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'washington-distinct',
+  // },
+  // 'West Virginia': {
+  //   name: 'West Virginia',
+  //   geoDataFile: `${MAPS_DIR}/west-virginia.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'west-virginia-distinct',
+  // },
+  // 'Wisconsin': {
+  //   name: 'Wisconsin',
+  //   geoDataFile: `${MAPS_DIR}/wisconsin.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'wisconsin-distinct',
+  // },
+  // 'Wyoming': {
+  //   name: 'Wyoming',
+  //   geoDataFile: `${MAPS_DIR}/wyoming.json`,
+  //   mapType: MAP_TYPES.STATE,
+  //   graphObjectName: 'wyoming-distinct',
+  // },
 };
 
 export default function ({
@@ -215,7 +321,7 @@ export default function ({
 }) {
   const [selectedRegion, setSelectedRegion] = useState({});
   const [currentHoveredRegion, setCurrentHoveredRegion] = useState({});
-  const [currentMap, setCurrentMap] = useState(mapMeta.India);
+  const [currentMap, setCurrentMap] = useState(mapMeta.US);
 
   useEffect(() => {
     // setStates(props.states);
@@ -228,7 +334,7 @@ export default function ({
   }, [states]);
 
   useEffect(() => {
-    const newMap = mapMeta['India'];
+    const newMap = mapMeta['US'];
     setCurrentMap(newMap);
     if (stateHighlighted === null) {
       highlightRegionInMap(null, currentMap.mapType);
@@ -437,7 +543,7 @@ export default function ({
         {currentMap.mapType === MAP_TYPES.STATE ? (
           <div
             className="button back-button"
-            onClick={() => switchMapToState('India')}
+            onClick={() => switchMapToState('US')}
           >
             Back
           </div>
